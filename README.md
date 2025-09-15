@@ -1,107 +1,108 @@
-💌 Phishing Email Detection
+# 💌 Phishing Email Detection
 
-This Python project detects phishing attempts in emails. It provides both CLI and GUI (Tkinter) interfaces. The program analyzes email content, identifies suspicious links and keywords, calculates a phishing score, and displays the results to the user.
+This Python project detects **phishing attempts** in emails. It provides both **CLI** and **GUI** (Tkinter) interfaces. The program analyzes email content, identifies suspicious links and keywords, calculates a phishing score, and displays the results to the user.
 
-Features
+---
 
-Automatically extracts URLs from email content.
+## Features
 
-Detects common phishing keywords.
+* Automatically extracts URLs from email content.
+* Detects common phishing keywords.
+* Score-based analysis to flag potentially malicious emails.
+* **GUI** with a user-friendly interface using Tkinter.
+* CLI version demonstrates Base64 encoding for data privacy.
+* Analyze all `.txt` emails in a folder (GUI).
 
-Score-based analysis to flag potentially malicious emails.
+---
 
-GUI with a user-friendly interface using Tkinter.
+## Installation
 
-CLI version demonstrates Base64 encoding for data privacy.
+1. Python 3 must be installed.
+2. Clone or download the project:
 
-Analyze all .txt emails in a folder (GUI).
-
-Installation
-
-Python 3 must be installed.
-
-Clone or download the project:
-
+```bash
 git clone https://github.com/username/phishing-detector.git
 cd phishing-detector
+```
 
+3. To run the GUI version:
 
-To run the GUI version:
-
+```bash
 python gui_phishing_detector.py
+```
 
+4. To run the CLI version:
 
-To run the CLI version:
-
+```bash
 python phishing_detector.py
+```
 
-Usage
-GUI
+---
 
-Paste the email content into the textbox or select a folder with .txt emails.
+## Usage
 
-Click “📥 Analyze Single Email” or “📁 Analyze Folder of Emails”.
+### GUI
 
-The results will appear below:
+1. Paste the email content into the textbox or select a folder with `.txt` emails.
+2. Click **“📥 Analyze Single Email”** or **“📁 Analyze Folder of Emails”**.
+3. The results will appear below:
 
-Score
+   * Score
+   * Verdict (Likely Safe / Potential Phishing)
+   * Found links
 
-Verdict (Likely Safe / Potential Phishing)
+### CLI
 
-Found links
+1. Add the email content to `sample_email.txt`.
+2. Run the script in the terminal:
 
-CLI
-
-Add the email content to sample_email.txt.
-
-Run the script in the terminal:
-
+```bash
 python phishing_detector.py
+```
 
+3. Output includes:
 
-Output includes:
+   * Email content
+   * Found links
+   * Total phishing score
+   * Base64 encoded content (demo)
 
-Email content
+---
 
-Found links
+## Code Overview
 
-Total phishing score
+### Core Functions
 
-Base64 encoded content (demo)
+* `find_links(text)` – Detects all URLs in the email content.
+* `score_email(text)` – Calculates a **phishing score** based on keywords and links.
+* `encrypt_text(text)` – Encodes text in Base64 (CLI demo).
+* GUI functions:
 
-Code Overview
-Core Functions
+  * `analyze_email_text()` – Analyzes a single email.
+  * `analyze_folder()` – Analyzes all `.txt` files in a folder.
+  * `display_results(email_text)` – Shows score, verdict, and links in the GUI.
 
-find_links(text) – Detects all URLs in the email content.
+### Scoring
 
-score_email(text) – Calculates a phishing score based on keywords and links.
+* Each suspicious keyword has a predefined **weight**.
+* Each URL adds +20 or +30 points (depending on version).
+* Score ≥50 triggers a **potential phishing warning**.
 
-encrypt_text(text) – Encodes text in Base64 (CLI demo).
+---
 
-GUI functions:
+## GUI Example Output
 
-analyze_email_text() – Analyzes a single email.
-
-analyze_folder() – Analyzes all .txt files in a folder.
-
-display_results(email_text) – Shows score, verdict, and links in the GUI.
-
-Scoring
-
-Each suspicious keyword has a predefined weight.
-
-Each URL adds +20 or +30 points (depending on version).
-
-Score ≥50 triggers a potential phishing warning.
-
-GUI Example Output
+```
 🔢 Score: 70
 📝 Verdict: ⚠️ Potential phishing detected!
 🔗 Found Links:
 https://fake-login.com
 https://urgent-action.com
+```
 
-CLI Example Output
+## CLI Example Output
+
+```
 Email content:
 
 Dear user, please verify your account immediately by clicking the link below.
@@ -115,11 +116,14 @@ https://fake-login.com
 
 🔐 Base64 Encoded Content:
 RGVhciB1c2VyLAo...
+```
 
-Development Suggestions
+---
 
-Extend the keyword list and scoring weights.
+## Development Suggestions
 
-Add ML-based phishing detection.
+* Extend the keyword list and scoring weights.
+* Add ML-based phishing detection.
+* Connect to email servers (Gmail/Outlook) for real-time analysis.
 
-Connect to email servers (Gmail/Outlook) for real-time analysis.
+
