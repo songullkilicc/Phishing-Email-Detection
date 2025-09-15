@@ -1,0 +1,9 @@
+Dear User,
+
+Your account has been compromised! Click here immediately to reset your password:
+http://malicious-site.com/reset
+
+Failure to act will result in permanent suspension!
+
+Regards,
+Bank Security Team

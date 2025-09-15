@@ -1,0 +1,8 @@
+Dear User,
+
+Your account has been suspended due to suspicious activity.  
+Please verify your identity by clicking the link below:  
+https://fake-bank-login.com/verify
+
+Sincerely,  
+Security Team
